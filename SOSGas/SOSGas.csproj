@@ -6,4 +6,15 @@
 
 
 
+  <ItemGroup>
+    <Content Remove="Views\Home\Privacy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\img\PhotoGallery\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\img\PhotoGallery\ipad.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

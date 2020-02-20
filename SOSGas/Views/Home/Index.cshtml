@@ -1,8 +1,279 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Welcome";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Header -->
+<div class="intro-header">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Welcome</h1>
+                    <h3>SOS Gas, Plumbing and Heating Services Ltd</h3>
+                    <hr class="intro-divider">
+                    <ul class="list-inline intro-social-buttons">
+                        <li>
+                            <a href="https://www.facebook.com/sosgasservices/" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i><span class="network-name">Facebook</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
 </div>
+<!-- /.intro-header -->
+<!-- Page Content -->
+
+<a name="about"></a>
+<div class="content-section-a">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">About Us:</h2>
+                <p class="lead">
+                    SOS Gas, Heating and Plumbing provide services for all your domestic maintenance requirements which include heating, plumbing, bathrooms and drain clearing. <br /><a href="#contact">Contact us now.</a>
+                    <br /><br />
+                    <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-globe"></i><span class="network-name"> Areas We Cover</span></button>
+                    <!-- Popup Modal -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Areas We Cover</h4>
+                                </div>
+                                <div class="modal-body">
+                <p>Surrey &amp; Hampshire </p>
+                <img class="img-responsive" src="img/Coverage-Example.jpg" alt="Areas we cover" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Popup Modal -->
+    </p>
+    </div>
+<div class="col-lg-5 col-lg-offset-2 col-sm-6">
+    <img class="img-responsive" src="img/sosgas-logo.jpg" alt="SOS Gas, Plumbing and Heating Services Logo">
+</div>
+    </div>
+
+    </div>
+<!-- /.container -->
+    </div>
+<!-- /.content-section-a -->
+
+<div class="content-section-b">
+
+    <a name="services"></a>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Services we offer</h2>
+                <p class="lead">
+                    <ul>
+                        <li>Hot Water Cylinder Descaling - POA</li>
+                        <br />
+                        <li>Home Buyers Safety Check - £60 + VAT</li>
+                        <br />
+                        <li>Boiler Servicing - £60 + VAT</li>
+                        <br />
+                        <li>Landlords Gas Safety Certificate - £65 + VAT</li>
+                        <br />
+                        <li>Thermal Imaging inspection - POA</li>
+                        <br />
+                        <li>Powerflushing - £400 + VAT</li>
+                        <br />
+                        <li>Boiler Installations - POA</li>
+                        <br />
+                        <li>Property development/building/extensions - POA</li>
+                        <br />
+                    </ul>
+                    <a href="tel://+447786808474" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-phone"></i><span class="network-name"> Call Us on 07786 808474</span></a>
+                </p>
+            </div>
+            <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                <img class="img-responsive" src="img/sosgas-wires.jpg" alt="Wiring that has been made safe">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.content-section-b -->
+
+<div class="content-section-a">
+
+    <a name="photoGallery"></a>
+
+    <!-- Start Photo Gallery -->
+    <div class="container">
+        <div class="row">
+
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading">Photo Gallery</h2>
+
+            @if (Model.Count > 0)
+            {
+                foreach (var file in Model)
+                {
+                    <div class="col-md-6 col-lg-4 col-sm-12">
+                        <div class="thumbnail">
+                            <a href="#photoGallery" class="pop">
+                                <img src="@file" style="max-width: 150px; max-height: 150px; background-color: #f8f8f8">
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+
+            <!-- Hard Coded Photo Gallery
+    <div class="col-md-6 col-lg-4 col-sm-12">
+        <div class="thumbnail">
+            <a href="#photoGallery" class="pop">
+                <img src="img/sosgas-xmas.jpg">
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 col-sm-12">
+        <div class="thumbnail">
+            <a href="#photoGallery" class="pop">
+                <img src="img/sosgas-heatflow.jpg">
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 col-sm-12">
+        <div class="thumbnail">
+            <a href="#photoGallery" class="pop">
+                <img src="img/sosgas-sink.jpg">
+            </a>
+        </div>
+    </div>
+        -->
+        </div>
+    </div>
+    <!-- End Photo Gallery -->
+</div>
+
+<div class="content-section-b">
+    <a name="review"></a>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">What people think of us</h2>
+                <p class="lead">
+                    <div class="facebookReviews">
+                        <div class="fb-post" data-href="https://www.facebook.com/leanneclark1/posts/10156646636220870" data-width="500"></div>
+                    </div>
+                </p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="img/NestThermostat.jpg" alt="Nest Thermostat">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.content-section-b -->
+
+<div class="content-section-a">
+
+    <a name="contact"></a>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Contact Us</h2>
+                <p class="lead">
+                    <!-- Contact Form to go here -->
+                    For competitive quotes from a fully insured Gas Safe Registered gas engineer, Either Call Nathan on <a href="tel://+447786808474">07786808474</a> or fill out the contact form below.<br />
+
+                    <form class="ajax-form" data-message-class="colors-e background-95 border heading" action="contact.php" method="post">
+                        <div class="form-group">
+                            <label>Name:</label><br /><input type="text" autocomplete="on" name="your-name" data-validation-required-message="Please fill the required field." required /><br />
+                            <label>Email:</label><br /><input type="email" autocomplete="off" name="your-email" data-validation-required-message="Please fill the required field." required /><br />
+                            <label>Telephone:</label><br /><input type="text" name="your-telephone" data-validation-required-message="Please fill the required field." required /><br />
+                            <label>Message:</label><br /><textarea name="your-message" data-validation-required-message="Please fill the required field." required /></textarea><br />
+                            <button type="submit" class="btn btn-default btn-lg" id="send"><i class="fa fa-envelope"></i><span class="network-name"> Contact Us</span></button>
+                        </div>
+                    </form>
+                </p>
+            </div>
+            <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                <img class="img-responsive" src="img/sosgas-boiler.jpg" alt="Boiler Repair">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.content-section-a -->
+
+<div class="banner">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Connect with us:</h2>
+            </div>
+            <div class="col-lg-6">
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://www.facebook.com/sosgasservices/" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i><span class="network-name">Facebook</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.banner -->
+<!-- Modal HTML -->
+<div>
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <img src="" class="imagepreview" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal HTML -->
