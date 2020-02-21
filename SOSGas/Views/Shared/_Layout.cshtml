@@ -33,12 +33,24 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" async></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" async></script>
     <![endif]-->
+
+    <!-- Slideshow CSS -->
+    <link href="css/Slideshow.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
     <!-- Facebook API -->
-    <div id="fb-root"></div>
-    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    <script>window.fbAsyncInit = function () {
+            FB.init({
+                appId: '165309770323911',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v6.0'
+            });
+        };</script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <!-- End Facebook API -->
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -129,16 +141,10 @@
                 $('#imagemodal').modal('show');
             });
         });</script>
-    <!-- End Modal JS
+    <!-- End Modal JS -->
 
-    <!-- Facebook JS SDK Intermittent issue -->
-    (function(d){
-    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement('script'); js.id = id; js.async = true;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    ref.parentNode.insertBefore(js, ref);
-    }(document));
-    <!-- End Facebook JS SDK -->
+    <!-- Slideshow JS -->
+    <script src="js/Slideshow.js" ></script>
+    
 </body>
 </html>
