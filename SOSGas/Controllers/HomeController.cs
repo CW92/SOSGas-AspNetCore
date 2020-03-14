@@ -59,7 +59,7 @@ namespace SOSGas.Controllers
 
             for (var i = 0; i < list.Count; i++)
             {
-                if (!list[i].EndsWith("jpg", StringComparison.CurrentCultureIgnoreCase))
+                if (!list[i].EndsWith("jpg", StringComparison.CurrentCultureIgnoreCase) && !list[i].EndsWith("jpeg", StringComparison.CurrentCultureIgnoreCase))
                 {
                     list.Remove(list[i]);
                     i--;

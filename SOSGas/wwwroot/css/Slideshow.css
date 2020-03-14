@@ -8,6 +8,8 @@
 
 img {
     vertical-align: middle;
+    image-orientation: none;
+    image-orientation: from-image;
 }
 
 /* Slideshow container */
