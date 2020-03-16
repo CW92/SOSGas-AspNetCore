@@ -124,7 +124,7 @@
 
 <div class="content-section-a">
 
-    <a name="photoGallery"></a>
+    <a href="photoGallery"></a>
 
     <!-- Start Photo Gallery -->
     <div class="container">
@@ -132,63 +132,28 @@
 
             <hr class="section-heading-spacer">
             <div class="clearfix"></div>
-            <h2 class="section-heading">Photo Gallery</h2>
+            <h2 class="section-heading"><a href="/Home/PhotoGallery">Photo Gallery</a></h2>
 
             @{
                 if (Model.Count > 0)
                 {
                     <div class="slideshow-container">
 
-                    @for (var i = 0; i < Model.Count; i++)
-                    {
-                        var x = i + 1;
-                        <div class="mySlides">
-                            <div class="numbertext">@x / @Model.Count</div>
-                            <img class="photoGallery" src="@Model[i]" style="max-height:500px;">
-                            <!--<div class="text">Some examples of our work.</div>-->
-                        </div>
-                    }
+                        @for (var i = 0; i < Model.Count; i++)
+                        {
+                            var x = i + 1;
+                            <div class="mySlides">
+                                <div class="numbertext">@x / @Model.Count</div>
+                                <a href="/Home/PhotoGallery?id=@Uri.EscapeDataString(Model[i])">
+                                    <img class="photoGallery" src="@Model[i]" style="max-height:500px;">
+                                </a>
+                                <!--<div class="text">Some examples of our work.</div>-->
+                            </div>
+                        }
 
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                        </div>
-                        <br>
-
-                        <div style="text-align:center">
-                            @for (var i = 1; i <= Model.Count; i++)
-                            {
-                                <span class="dot" onclick="currentSlide(@i)"></span>
-                            }
-                        </div>
-
-                    }
+                    </div>
                 }
-            <!-- Hard Coded Photo Gallery
-    <div class="col-md-6 col-lg-4 col-sm-12">
-        <div class="thumbnail">
-            <a href="#photoGallery" class="pop">
-                <img src="img/sosgas-xmas.jpg">
-            </a>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-lg-4 col-sm-12">
-        <div class="thumbnail">
-            <a href="#photoGallery" class="pop">
-                <img src="img/sosgas-heatflow.jpg">
-            </a>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-lg-4 col-sm-12">
-        <div class="thumbnail">
-            <a href="#photoGallery" class="pop">
-                <img src="img/sosgas-sink.jpg">
-            </a>
-        </div>
-    </div>
-        -->
+            }
         </div>
     </div>
     <!-- End Photo Gallery -->
@@ -273,7 +238,7 @@
                 </p>
             </div>
             <div class="col-md-6">
-                
+
             </div>
         </div>
 
@@ -296,3 +261,5 @@
     </div>
 </div>
 <!-- End Modal HTML -->
+<!-- Slideshow JS -->
+<script src="/js/Slideshow.js"></script>

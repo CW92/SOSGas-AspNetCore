@@ -1,0 +1,74 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Photo Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-section-a">
+    @{
+        <div class="row">
+            @for (var i = 0; i < Model.Count(); i++)
+            {
+                var align = string.Empty;
+
+                @if (i % 3 == 1)
+                {
+                    align = "center";
+                }
+                else if (i % 3 == 2)
+                {
+                    align = "left";
+                }
+                else if (i < Model.Count() && i % 3 == 0)
+                {
+                    @Html.Raw("</div> <div class='row'>");
+                    @Html.Raw("<p>&nbsp;</p>");
+                    @Html.Raw("</div> <div class='row'>");
+                    align = "right";
+                }
+                @Html.Raw($"<div class='col-lg-4 col-sm-1'> <a class='img' data-toggle='modal' data-target='#myModal'> <img class='photoGallery-{align}' src='{Model[i]}' style='max-width: 250px;' /> </a> </div>");
+            }
+        </div>
+    }
+</div>
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function getClickedImg(imgUrl) {
+        alert(imgUrl);
+    }
+
+    $('a.img').click(function (event) {
+        event.preventDefault();
+        var body = "<img src='" + $(this).find('img').attr('src') + "' style='max-width: 100%;' />";
+        $('div.modal-body').html(body);
+    });
+
+    $(window).on('load', function () {
+        var urlParams = new URLSearchParams(location.search);
+        if (urlParams != null && urlParams.has('id')) {
+            var body = "<img src='" + urlParams.get('id') + "' style='max-width: 100%;' />";
+            $('div.modal-body').html(body);
+            $('#myModal').modal('show');
+        }
+    });
+</script>

@@ -14,7 +14,7 @@ h6{font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:70
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(/img/IMG_2545_edit.png) no-repeat center center;
+    background: url(/img/IMG_2545_edit.jpg) no-repeat center center;
     background-size: cover;
 }
 .intro-message{position:relative;padding-top:20%;padding-bottom:20%;}
@@ -51,3 +51,31 @@ footer{padding:50px 0;background-color:#f8f8f8;}
 p.copyright{margin:15px 0 0;}
 
 ul li{font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:500;font-size: large}
+
+@media (max-width : 720px) {
+    /* If small screen photo gallery is col-xs-1 */
+    img[class*='photoGallery-'] {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+}
+
+@media (min-width : 720px) {
+    /* if larger the photo gallery is col-md-3 */
+    img.photoGallery-Left {
+        float: left;
+    }
+
+    img.photoGallery-right {
+        float: right;
+    }
+
+    img.photoGallery-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+ }

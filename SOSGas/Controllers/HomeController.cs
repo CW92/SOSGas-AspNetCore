@@ -66,12 +66,27 @@ namespace SOSGas.Controllers
                 } else
                 {
                     _logger.Log(LogLevel.Information, $"Replacing {list[i]} filename to be URL appropriate.");
-                    list[i] = list[i].Replace(photoGalleryFolder, "img/PhotoGallery");
+                    list[i] = list[i].Replace(photoGalleryFolder, "/img/PhotoGallery");
                     _logger.Log(LogLevel.Information, $"Url file path is now {list[i]}");
                 }
             }
 
             return list;
+        }
+
+        public IActionResult PhotoGallery()
+        {
+            List<string> allImages = new List<string>();
+            try
+            {
+                allImages = GetAllImages();
+                allImages.Sort();
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError($"An unexpected exception occurred. {exception.Message} {Environment.NewLine} {exception.StackTrace}");
+            }
+            return View(allImages);
         }
     }
 }
