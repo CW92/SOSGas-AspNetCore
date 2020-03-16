@@ -59,14 +59,14 @@
 
     $('a.img').click(function (event) {
         event.preventDefault();
-        var body = "<img src='" + $(this).find('img').attr('src') + "' style='max-width: 100%;' />";
+        var body = "<img class='photoGallery-center' src='" + $(this).find('img').attr('src') + "' style='max-width: 100%;' />";
         $('div.modal-body').html(body);
     });
 
     $(window).on('load', function () {
         var urlParams = new URLSearchParams(location.search);
         if (urlParams != null && urlParams.has('id')) {
-            var body = "<img src='" + urlParams.get('id') + "' style='max-width: 100%;' />";
+            var body = "<img class='photoGallery-center' src='" + urlParams.get('id') + "' style='max-width: 100%;' />";
             $('div.modal-body').html(body);
             $('#myModal').modal('show');
         }
